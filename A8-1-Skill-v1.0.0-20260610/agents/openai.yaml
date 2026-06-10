@@ -1,0 +1,3 @@
+display_name: "A8-1 Project"
+short_description: "Headless-Chrome A8 wait-send drafts for project initiation, quote changes, project creation, and inventory batch creation."
+default_prompt: "Use $a8-1-project to run or debug supported A8 wait-send draft workflows through real headless Chrome."

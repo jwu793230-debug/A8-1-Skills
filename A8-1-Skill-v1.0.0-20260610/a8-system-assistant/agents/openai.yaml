@@ -1,0 +1,7 @@
+interface:
+  display_name: "A8 System Assistant"
+  short_description: "Run supported A8 workflows through one shared browser-driven execution foundation."
+  default_prompt: "Use $a8-system-assistant to execute or inspect supported A8 wait-send draft workflows such as project initiation, quote-list change, project creation, and inventory batch creation."
+
+policy:
+  allow_implicit_invocation: true

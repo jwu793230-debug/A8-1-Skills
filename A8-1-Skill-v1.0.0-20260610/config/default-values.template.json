@@ -1,0 +1,90 @@
+{
+  "configVersion": "1.0.0",
+  "usage": {
+    "purpose": "外发模板默认值。正式运行前请复制为 default-values.local.json 后再填写现场默认值。",
+    "doNotStore": [
+      "A8账号",
+      "A8密码",
+      "验证码",
+      "A8草稿ID",
+      "真实项目材料",
+      "运行截图",
+      "浏览器用户数据目录"
+    ],
+    "mergePriority": [
+      "用户当前明确值",
+      "用户材料值",
+      "default-values.local.json",
+      "default-values.template.json",
+      "空值并告警"
+    ]
+  },
+  "global": {
+    "saveOnly": true,
+    "send": false,
+    "loginPolicy": "http-first-then-headless-browser-form",
+    "captchaPolicy": "screenshot-plus-one-time-code"
+  },
+  "runtimeModes": {
+    "projectCreate": "fast",
+    "initApply": "fast",
+    "quoteChange": "fast",
+    "inventoryBatch": "normal"
+  },
+  "projectCreate": {
+    "winRate": "",
+    "progress": "",
+    "province": "",
+    "city": "",
+    "district": ""
+  },
+  "initApply": {
+    "needDelivery": "是",
+    "priceSystem": "战略合作价",
+    "softwareIntegrationConfirm": "已确认-具备对接条件",
+    "regulatorDemand": "无",
+    "businessType": "AI安全事业部",
+    "industryType": "基建数字化行业业务"
+  },
+  "quoteChange": {
+    "businessName": "AI安全事业部",
+    "industryName": "基建数字化行业业务",
+    "changedAuxMaterial": "0",
+    "changedInstallDebugFee": "0",
+    "deliveryFee": "0"
+  },
+  "inventoryBatch": {
+    "businessDepartment": "AI安全生产事业部",
+    "applicationCategory": "外购",
+    "researchMethod": "外购",
+    "subsystem": "其他子系统",
+    "productSeries": "通用产品",
+    "materialSegment": "WG_LS",
+    "designatedSupplier": "否",
+    "temporaryMaterial": "是",
+    "bomType": "基线",
+    "unit": "pcs",
+    "tagType": "基线",
+    "outputTaxRate": "13%",
+    "inputTaxRate": "13%",
+    "promotionAdvice": "不推荐",
+    "freight": "0"
+  },
+  "requiredFieldsNeverDefault": [
+    "projectName",
+    "customerName",
+    "sales",
+    "business",
+    "presales",
+    "estimatedAmount",
+    "projectNo",
+    "accountName",
+    "materialCode",
+    "quantity",
+    "taxPrice",
+    "productName",
+    "model",
+    "brand",
+    "cost"
+  ]
+}

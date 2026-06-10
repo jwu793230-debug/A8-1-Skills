@@ -1,0 +1,19 @@
+{
+  "name": "a8-1-skill",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "assist:project-create-save": "node scripts/run-a8-assistant-flow.js project_create_save_draft",
+    "assist:init-apply-save": "node scripts/run-a8-assistant-flow.js init_apply_save_draft",
+    "assist:change-existing-save": "node scripts/run-a8-assistant-flow.js change_add_save_draft",
+    "assist:inventory-batch-save": "node scripts/run-a8-assistant-flow.js inventory_batch_save_draft",
+    "assist:project-create-observe": "node scripts/run-a8-assistant-flow.js project_create_observe",
+    "assist:project-create-controls": "node scripts/run-a8-assistant-flow.js project_create_control_observe",
+    "assist:inventory-batch-observe": "node scripts/run-a8-assistant-flow.js inventory_batch_observe",
+    "convert:init-materials": "python scripts/export-init-material-items.py"
+  },
+  "dependencies": {
+    "playwright-core": "^1.60.0"
+  }
+}
