@@ -1,0 +1,79 @@
+A8-1 Skill v1.0.0 同事使用说明
+
+你好，这个压缩包是 A8-1 Skill v1.0.0 正式版，用来让 Codex 根据你提供的材料，在 A8 里自动生成“保存待发”草稿。
+
+重要边界：
+1. 这个工具只保存到 A8 待发，不会自动发送。
+2. 请不要把 A8 账号、密码、验证码、草稿 ID 写进配置文件或材料文件。
+3. 运行后请到 A8 待发里人工复核内容，再决定是否发送。
+
+使用步骤：
+1. 解压 A8-1-Skill-v1.0.0-20260610.zip。
+2. 进入解压后的 A8-1-release-V1-20260610 目录。
+3. 在该目录打开 PowerShell，执行：
+   npm install
+4. 确认电脑已安装 Google Chrome，并且当前网络能访问 A8。
+5. 运行前在当前 PowerShell 里临时设置账号密码：
+   $env:SEEYON_USERNAME = "<你的A8账号>"
+   $env:SEEYON_PASSWORD = "<你的A8密码>"
+6. 正式运行前先打开：
+   config\A8默认值配置说明.xlsx
+   按现场情况确认默认业务、行业、税率、申请类别、研发方式等。
+7. 准备本次要填写的材料，推荐整理成 UTF-8 JSON 文件。
+8. 设置本次材料路径：
+   $env:A8_ASSISTANT_INPUT_JSON_FILE = "D:\你的路径\input.json"
+9. 选择流程运行。
+
+支持流程和命令：
+1. 集成项目创建单
+   支持模式：fast / normal / debug
+   命令：npm run assist:project-create-save
+
+2. 集成项目立项申请
+   支持模式：fast / normal / debug
+   命令：npm run assist:init-apply-save
+
+3. 报价清单变更
+   支持模式：fast / normal / debug
+   命令：npm run assist:change-existing-save
+
+4. 存货档案新建申请-批量
+   支持模式：normal / debug
+   命令：npm run assist:inventory-batch-save
+   注意：该流程 fast 模式不开放。
+
+模式建议：
+1. 首次在新电脑或新 A8 环境运行，建议先用 normal。
+2. 已验证稳定后，可用 fast。
+3. 遇到字段、控件、登录、验证码或保存异常时，用 debug。
+
+设置模式示例：
+$env:A8_TRACE_LEVEL = "normal"
+npm run assist:init-apply-save
+
+默认值逻辑：
+正式运行前按以下优先级合并字段：
+用户当前明确说明 > 用户材料里的值 > default-values.local.json > default-values.template.json > 空值告警
+
+建议做法：
+1. 不改 default-values.template.json。
+2. 如需长期保存现场默认值，复制一份：
+   config\default-values.local.json
+3. local 文件只放业务默认值，不放账号、密码、验证码、草稿 ID 或真实运行截图。
+
+随包文档：
+1. README.md：安装和入口说明。
+2. docs\Codex操作说明.md：给 Codex 的操作说明。
+3. docs\A8四流程填报信息清单.xlsx：四个流程需要准备哪些字段。
+4. config\A8默认值配置说明.xlsx：默认值配置清单，方便人工修改。
+5. docs\发布验证报告.md：本版冒烟、校验和风险边界。
+6. docs\A8-1发版资料总览.html：图文总览页。
+
+本版验证结论：
+1. 集成项目创建单 fast 已通过。
+2. 集成项目立项申请全量 fast 已通过。
+3. 报价清单变更 fast 已通过。
+4. 存货档案新建申请-批量 normal 已通过。
+5. 四个流程均为保存待发，不发送。
+
+如果你只是要试用，可以先把材料和目标流程告诉 Codex，让 Codex 帮你生成本次 input.json，并按上述命令执行。
